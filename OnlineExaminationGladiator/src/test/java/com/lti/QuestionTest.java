@@ -27,12 +27,12 @@ class QuestionTest {
 	@Test
 	public void addQuestion() {
 		Question question=new Question();
-		question.getQuestion();
-		question.getChoiceOne();
-		question.getChoiceTwo();
-		question.getChoiceThree();
-		question.getChoiceFour();
-		question.getCorrectAns();
+		question.setQuestion("Which is use to find bugs in java programs ?");
+		question.setChoiceOne("JVM");
+		question.setChoiceTwo("JRE");
+		question.setChoiceThree("JDK");
+		question.setChoiceFour("JDB");
+		question.setCorrectAns("JDB");
 		
 		int id=dao.addQuestion(question);
 		System.out.println("Question registered with id :"+id);
@@ -45,13 +45,14 @@ class QuestionTest {
 	@Test
 	public void updateQuestion() {
 		Question question=new Question();
-		question.getQuestionId();
-		question.getQuestion();
-		question.getChoiceOne();
-		question.getChoiceTwo();
-		question.getChoiceThree();
-		question.getChoiceFour();
-		question.getCorrectAns();
+		question.setQuestionId(41);
+		question.setLevel(1);
+		question.setQuestion("Which one is not a feature of java ?");
+		question.setChoiceOne("Dynamic");
+		question.setChoiceTwo("Architecture Neutral");
+		question.setChoiceThree("Use of pointers");
+		question.setChoiceFour("Object oriented");
+		question.setCorrectAns("Use of pointers");
 		
 		dao.updateQuestion(question);
 	}
