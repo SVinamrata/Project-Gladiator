@@ -28,6 +28,7 @@ class QuestionTest {
 	public void addQuestion() {
 		Question question=new Question();
 		question.setQuestion("Which is use to find bugs in java programs ?");
+		question.setLevel(1);
 		question.setChoiceOne("JVM");
 		question.setChoiceTwo("JRE");
 		question.setChoiceThree("JDK");
