@@ -7,11 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "subject_gp")
+@NamedQuery(name = "fetch-all",query = "select sub from Subject sub order by sub.subjectId")
 public class Subject {
 	
 	@Id

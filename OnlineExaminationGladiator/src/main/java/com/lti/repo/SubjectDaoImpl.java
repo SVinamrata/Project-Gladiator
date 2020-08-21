@@ -45,10 +45,7 @@ public class SubjectDaoImpl implements SubjectDao {
 	}
 	@Transactional
 	public List<Subject> listSubjects() {
-		String sql="select sub from Subject sub order by sub.subjectId";
-		Query qry=em.createQuery(sql);
-		List<Subject> users=qry.getResultList();
-		return users;
+		return em.createNamedQuery("fetch-all").getResultList();
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.model.Subject;
@@ -29,6 +31,7 @@ public class SubjectController {
 	public Subject getSubjectBYSubjectId(int subjectId){
 		return service.getSubjectBYSubjectId(subjectId);
 	}
+	@RequestMapping(path = "/testsAvailable", method = RequestMethod.GET, produces = "application/json")
 	public List<Subject> listSubjects(){
 		return service.listSubjects();
 	}
