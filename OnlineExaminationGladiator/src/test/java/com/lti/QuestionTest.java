@@ -2,6 +2,9 @@ package com.lti;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -12,8 +15,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.annotation.Rollback;
 
 import com.lti.controller.QuestionController;
+import com.lti.model.Exam;
 import com.lti.model.Question;
+import com.lti.model.Subject;
 import com.lti.repo.QuestionDao;
+import com.lti.repo.SubjectDao;
 
 @SpringBootTest
 @AutoConfigureTestDatabase(replace=Replace.NONE)
@@ -22,7 +28,10 @@ import com.lti.repo.QuestionDao;
 class QuestionTest {
 
 	@Autowired
-	private QuestionDao dao;
+	private QuestionDao questionDao;
+	
+	@Autowired
+	private SubjectDao subjectDao;
 	
 	@Test
 	public void addQuestion() {
@@ -34,14 +43,20 @@ class QuestionTest {
 		question.setChoiceThree("JDK");
 		question.setChoiceFour("JDB");
 		question.setCorrectAns("JDB");
-		
-		int id=dao.addQuestion(question);
+		Subject subject = subjectDao.getSubjectBYSubjectId(44);
+		question.setExamSubject(subject);
+		List<Question> quesList = new ArrayList<Question>();
+		quesList.add(question);
+		subject.setSubjectQuestions(quesList);
+
+
+		int id=questionDao.addQuestion(question);
 		System.out.println("Question registered with id :"+id);
 	}
 
 	@Test
 	public void deleteQuestion() {
-		System.out.println(dao.deleteQuestion(20202));
+		System.out.println(questionDao.deleteQuestion(20202));
 	}
 	@Test
 	public void updateQuestion() {
@@ -55,18 +70,18 @@ class QuestionTest {
 		question.setChoiceFour("Object oriented");
 		question.setCorrectAns("Use of pointers");
 		
-		dao.updateQuestion(question);
+		questionDao.updateQuestion(question);
 	}
 	@Test
 	public void listQuestions() {
-		System.out.println(dao.listQuestions());
+		System.out.println(questionDao.listQuestions());
 	}
 	@Test
 	public void getQuestionByQuestion_id() {
-		System.out.println(dao.getQuestionByQuestion_id(20001));
+		System.out.println(questionDao.getQuestionByQuestion_id(20001));
 	}
 	@Test
 	public void getQuestionsForASubject() {
-		System.out.println(dao.getQuestionsForASubject(10001));
+		System.out.println(questionDao.getQuestionsForASubject(10001));
 	}
 }

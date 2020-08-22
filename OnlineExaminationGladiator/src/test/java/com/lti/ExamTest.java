@@ -24,7 +24,6 @@ import com.lti.repo.StudentDao;
 import com.lti.repo.SubjectDao;
 
 @SpringBootTest
-//@DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class ExamTest {
@@ -42,9 +41,9 @@ public class ExamTest {
 	public void addNewExamTest() {
 		List<Exam> examList = new ArrayList<Exam>();
 		Exam exam = new Exam();
-		Subject sub = subjectDao.getSubjectBYSubjectId(22);
+		Subject sub = subjectDao.getSubjectBYSubjectId(44);
 		exam.setTestSubject(sub);
-		Student stu = studentDao.findAUser(20203);
+		Student stu = studentDao.findAUser(20227);
 		exam.setStudent(stu);
 		examList.add(exam);	
 		sub.setSubjectExams(examList);
