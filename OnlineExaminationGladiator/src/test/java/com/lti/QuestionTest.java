@@ -43,7 +43,7 @@ class QuestionTest {
 		question.setChoiceThree("JDK");
 		question.setChoiceFour("JDB");
 		question.setCorrectAns("JDB");
-		Subject subject = subjectDao.getSubjectBYSubjectId(44);
+		Subject subject = subjectDao.getSubjectBYSubjectId(64);
 		question.setExamSubject(subject);
 		List<Question> quesList = new ArrayList<Question>();
 		quesList.add(question);
@@ -61,7 +61,7 @@ class QuestionTest {
 	@Test
 	public void updateQuestion() {
 		Question question=new Question();
-		question.setQuestionId(41);
+		question.setQuestionId(71);
 		question.setLevel(1);
 		question.setQuestion("Which one is not a feature of java ?");
 		question.setChoiceOne("Dynamic");
@@ -69,6 +69,12 @@ class QuestionTest {
 		question.setChoiceThree("Use of pointers");
 		question.setChoiceFour("Object oriented");
 		question.setCorrectAns("Use of pointers");
+		Subject subject = subjectDao.getSubjectBYSubjectId(64);
+		question.setExamSubject(subject);
+		List<Question> quesList = new ArrayList<Question>();
+		quesList.add(question);
+		subject.setSubjectQuestions(quesList);
+
 		
 		questionDao.updateQuestion(question);
 	}
