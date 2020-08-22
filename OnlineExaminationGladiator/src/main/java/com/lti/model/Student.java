@@ -36,9 +36,6 @@ public class Student {
 	@Column(name = "STUDENT_EMAIL")
 	private String studentEmail;
 
-	@Column(name = "STUDENT_GENDER")
-	private String studentGender;
-
 	@Column(name = "STUDENT_CITY")
 	private String studentCity;
 
@@ -94,13 +91,6 @@ public class Student {
 		this.studentEmail = studentEmail;
 	}
 
-	public String getStudentGender() {
-		return studentGender;
-	}
-
-	public void setStudentGender(String studentGender) {
-		this.studentGender = studentGender;
-	}
 
 	public String getStudentCity() {
 		return studentCity;
@@ -145,8 +135,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [studentID=" + studentID + ", studentName=" + studentName + ", studentPassword="
-				+ studentPassword + ", studentDOB=" + studentDOB + ", studentEmail=" + studentEmail + ", studentGender="
-				+ studentGender + ", studentCity=" + studentCity + ", studentState=" + studentState + ", studentYOC="
+				+ studentPassword + ", studentDOB=" + studentDOB + ", studentEmail=" + studentEmail + ", studentCity=" + studentCity + ", studentState=" + studentState + ", studentYOC="
 				+ studentYOC + ", studentMobile=" + studentMobile + "]";
 	}
 	

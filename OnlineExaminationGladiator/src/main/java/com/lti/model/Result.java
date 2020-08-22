@@ -27,7 +27,7 @@ public class Result {
 	private int levelPassed;
 	
 	@OneToOne
-	@JoinColumn(name="TEST_ID") 
+	@JoinColumn(name="EXAM_ID") 
 	private Exam examDetail;
 
 }

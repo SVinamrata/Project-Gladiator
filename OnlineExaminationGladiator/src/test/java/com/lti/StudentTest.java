@@ -30,7 +30,6 @@ public class StudentTest {
 		stud.setSudentPassword("buzzinga");
 		stud.setStudentDOB(LocalDate.of(1988, 02, 15));
 		stud.setStudentEmail("cooper.sheldon@gmail.com");
-		stud.setStudentGender("Male");
 		stud.setStudentCity("Pasadena");
 		stud.setStudentState("California");
 		stud.setStudentYOC(2018);
@@ -63,7 +62,6 @@ public class StudentTest {
 		stud.setSudentPassword("starWars");
 		stud.setStudentDOB(LocalDate.of(1988, 02, 15));
 		stud.setStudentEmail("cooper.sheldon@gmail.com");
-		stud.setStudentGender("Male");
 		stud.setStudentCity("Pasadena");
 		stud.setStudentState("California");
 		stud.setStudentYOC(2018);

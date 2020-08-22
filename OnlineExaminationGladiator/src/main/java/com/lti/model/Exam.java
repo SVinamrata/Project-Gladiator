@@ -22,9 +22,6 @@ public class Exam {
 	@Column(name="EXAM_ID")
 	private int examId;
 	
-	@Column(name = "EXAM_NAME")
-	private String examName;
-	
 	@ManyToOne
 	@JoinColumn(name="SUBJECT_ID")
 	private Subject examSubject;
@@ -47,13 +44,7 @@ public class Exam {
 		this.examId = examId;
 	}
 
-	public String getExamName() {
-		return examName;
-	}
 
-	public void setExamName(String examName) {
-		this.examName = examName;
-	}
 
 	public Subject getTestSubject() {
 		return examSubject;
@@ -89,7 +80,7 @@ public class Exam {
 
 	@Override
 	public String toString() {
-		return "Exam [examId=" + examId + ", examName=" + examName + "]";
+		return "Exam [examId=" + examId + "]";
 	}
 	
 	

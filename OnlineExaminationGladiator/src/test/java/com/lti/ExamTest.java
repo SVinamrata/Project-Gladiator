@@ -42,7 +42,6 @@ public class ExamTest {
 	public void addNewExamTest() {
 		List<Exam> examList = new ArrayList<Exam>();
 		Exam exam = new Exam();
-		exam.setExamName("sql01");
 		Subject sub = subjectDao.getSubjectBYSubjectId(22);
 		exam.setTestSubject(sub);
 		Student stu = studentDao.findAUser(20203);

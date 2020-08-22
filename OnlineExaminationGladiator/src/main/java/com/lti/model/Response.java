@@ -25,7 +25,7 @@ public class Response {
 	private String studentResponse;
 	
 	@ManyToOne
-	@JoinColumn(name="TEST_ID")
+	@JoinColumn(name="EXAM_ID")
 	private Exam examDetails;
 	
 	@ManyToOne

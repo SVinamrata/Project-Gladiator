@@ -21,7 +21,7 @@ public class Question {
 	@Column(name="QUESTION_ID")
 	private int questionId;
 	
-	@Column(name="LEVEL")
+	@Column(name="QUESTION_LEVEL")
 	private int level;
 	
 	@Column(name="QUESTION")
