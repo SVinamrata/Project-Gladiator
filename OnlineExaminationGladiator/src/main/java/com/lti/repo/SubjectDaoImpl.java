@@ -5,9 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Subject;
 
@@ -43,7 +43,6 @@ public class SubjectDaoImpl implements SubjectDao {
 		Subject sub=em.find(Subject.class, subjectId);
 		return sub;
 	}
-	@Transactional
 	public List<Subject> listSubjects() {
 		return em.createNamedQuery("fetch-all").getResultList();
 	}

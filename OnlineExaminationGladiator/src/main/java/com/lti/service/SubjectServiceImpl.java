@@ -1,10 +1,12 @@
 package com.lti.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lti.dto.displaySubject;
 import com.lti.model.Subject;
 import com.lti.repo.SubjectDao;
 
@@ -30,8 +32,17 @@ public class SubjectServiceImpl implements SubjectService {
 		return dao.getSubjectBYSubjectId(subjectId);
 	}
 
-	public List<Subject> listSubjects() {
-		return dao.listSubjects();
+	public List<displaySubject> listSubjects() {
+		List<Subject> subjectList =  dao.listSubjects();
+		List<displaySubject> displaySubjectList = new ArrayList<displaySubject>();
+		for(Subject sub: subjectList ) {
+			displaySubject disSub = new displaySubject();
+			disSub.setSubjectId(sub.getSubjectId());
+			disSub.setSubjectName(sub.getSubjectName());
+			displaySubjectList.add(disSub);
+		}
+		return displaySubjectList;
+		
 	}
 
 }
