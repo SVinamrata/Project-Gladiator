@@ -30,4 +30,53 @@ public class Result {
 	@JoinColumn(name="EXAM_ID") 
 	private Exam examDetail;
 
+	public int getUserResultId() {
+		return userResultId;
+	}
+
+	public void setUserResultId(int userResultId) {
+		this.userResultId = userResultId;
+	}
+
+	public String getResultStatus() {
+		return resultStatus;
+	}
+
+	public void setResultStatus(String resultStatus) {
+		this.resultStatus = resultStatus;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public int getLevelPassed() {
+		return levelPassed;
+	}
+
+	public void setLevelPassed(int levelPassed) {
+		this.levelPassed = levelPassed;
+	}
+
+	public Exam getExamDetail() {
+		return examDetail;
+	}
+
+	public void setExamDetail(Exam examDetail) {
+		this.examDetail = examDetail;
+	}
+
+	@Override
+	public String toString() {
+		return "Result [userResultId=" + userResultId + ", resultStatus=" + resultStatus + ", score=" + score
+				+ ", levelPassed=" + levelPassed + ", examDetail=" + examDetail.getExamId() + "]";
+	}
+	
+	
+	
+
 }

@@ -26,12 +26,14 @@ public class StudentTest {
 	@Test
 	public void addNewStudentTest() {
 		Student stud = new Student();
+
 		stud.setStudentName("Sheldon Cooper1");
 		stud.setStudentPassword("buzzinga1");
 		stud.setStudentDOB(LocalDate.of(1998, 02, 15));
 		stud.setStudentEmail("cooper.sheldon1@gmail.com");
 		stud.setStudentCity("Pasadena1");
 		stud.setStudentState("California1");
+
 		stud.setStudentYOC(2018);
 		stud.setStudentMobile("1238452");
 		
@@ -46,7 +48,7 @@ public class StudentTest {
 	
 	@Test
 	public void findAUserTest() {
-		System.out.println(studentDao.findAUser(20203));
+		System.out.println(studentDao.findAUser(20227));
 	}
 	
 	@Test
