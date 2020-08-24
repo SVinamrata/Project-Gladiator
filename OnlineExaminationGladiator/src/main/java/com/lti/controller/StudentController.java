@@ -1,10 +1,15 @@
 package com.lti.controller;
 
 import java.util.List;
+import com.lti.controller.Status.StatusType;
+import com.lti.exception.StudentServiceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.model.Exam;
@@ -18,8 +23,31 @@ public class StudentController {
 	@Autowired
 	StudentService service;
 	
-	public int addNewStudent(Student student) {
-		return service.addNewStudent(student);
+	@GetMapping("/view")
+	public List<Student> viewAllStudents() {
+		return service.viewAllStudents();
+	}
+	
+	@PostMapping(path="/register")
+	public Status addNewStudent(@RequestBody Student student) {
+		System.out.println(student.getStudentEmail());
+		System.out.println(student.getStudentPassword());
+		try {
+			
+			service.addNewStudent(student);
+			Status status=new Status();
+			status.setStatus(StatusType.SUCCESS);
+			
+			status.setMesaage("Registeration Successful!");
+			return status;
+					
+		}catch (StudentServiceException e) {
+			// TODO: handle exception
+			Status status=new Status();
+			status.setStatus(StatusType.FAILURE);
+			status.setMesaage(e.getMessage());
+			return status;
+		}
 	}
 
 	public boolean updateStudent(Student student) {
@@ -38,9 +66,9 @@ public class StudentController {
 		return service.loginStudent(userId, password);
 	}
 	
-	public List<Student> viewAllStudents() {
+	/*public List<Student> viewAllStudents() {
 		return service.viewAllStudents();
-	}
+	}*/
 	
 //	public List<Exam> viewAllExamsOfStudent(int studentId) {
 //		return service.viewAllExamsOfStudent(studentId);

@@ -19,6 +19,8 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Transactional
 	public int addNewStudent(Student student) {
+		System.out.println(student.getStudentEmail());
+		System.out.println(student.getStudentPassword());
 		Student s = em.merge(student);
 		return s.getStudentID();
 	}
@@ -40,6 +42,15 @@ public class StudentDaoImpl implements StudentDao {
 			return true;
 		}
 		return false;
+	}
+	@Override
+	public boolean isStudentPresent(String email)
+	{
+		return (Long)em
+				.createQuery("select count(c.studentID) from Student c where c.studentEmail=:em")
+				.setParameter("em", email)
+				.getSingleResult()==1?true:false;
+		
 	}
 
 	public Student findAUser(int studentId) {

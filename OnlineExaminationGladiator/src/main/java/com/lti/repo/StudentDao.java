@@ -14,6 +14,7 @@ public interface StudentDao {
 	boolean loginStudent(int userId , String password);
 	List<Student> viewAllStudents();
 //	List<Exam> viewAllExamsOfStudent(int studentId);
+	boolean isStudentPresent(String studentEmail);
 
 
 }

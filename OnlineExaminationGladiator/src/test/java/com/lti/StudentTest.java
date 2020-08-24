@@ -26,12 +26,12 @@ public class StudentTest {
 	@Test
 	public void addNewStudentTest() {
 		Student stud = new Student();
-		stud.setStudentName("Sheldon Cooper");
-		stud.setSudentPassword("buzzinga");
-		stud.setStudentDOB(LocalDate.of(1988, 02, 15));
-		stud.setStudentEmail("cooper.sheldon@gmail.com");
-		stud.setStudentCity("Pasadena");
-		stud.setStudentState("California");
+		stud.setStudentName("Sheldon Cooper1");
+		stud.setStudentPassword("buzzinga1");
+		stud.setStudentDOB(LocalDate.of(1998, 02, 15));
+		stud.setStudentEmail("cooper.sheldon1@gmail.com");
+		stud.setStudentCity("Pasadena1");
+		stud.setStudentState("California1");
 		stud.setStudentYOC(2018);
 		stud.setStudentMobile("1238452");
 		
@@ -59,7 +59,7 @@ public class StudentTest {
 		Student stud = new Student();
 		stud.setStudentID(20203);
 		stud.setStudentName("Sheldon Cooper");
-		stud.setSudentPassword("starWars");
+		stud.setStudentPassword("starWars");
 		stud.setStudentDOB(LocalDate.of(1988, 02, 15));
 		stud.setStudentEmail("cooper.sheldon@gmail.com");
 		stud.setStudentCity("Pasadena");

@@ -19,8 +19,7 @@ import javax.persistence.Table;
 public class Student {
 
 	@Id
-	@SequenceGenerator(name = "sequence_student", initialValue = 20201, allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_student")
+	@GeneratedValue
 	@Column(name = "STUDENT_ID")
 	private int studentID;
 
@@ -67,11 +66,11 @@ public class Student {
 		this.studentName = studentName;
 	}
 
-	public String getSudentPassword() {
+	public String getStudentPassword() {
 		return studentPassword;
 	}
 
-	public void setSudentPassword(String studentPassword) {
+	public void setStudentPassword(String studentPassword) {
 		this.studentPassword = studentPassword;
 	}
 
