@@ -10,7 +10,8 @@ public interface StudentService {
 	boolean updateStudent(Student student);
 	boolean deleteStudent(int studentId);
 	Student findAUser(int userId);
-	boolean loginStudent(int userId , String password);
 	List<Student> viewAllStudents();
 //	List<Exam> viewAllExamsOfStudent(int studentId);
+	public Student login(String studentEmail, String studentPassword);
+
 }

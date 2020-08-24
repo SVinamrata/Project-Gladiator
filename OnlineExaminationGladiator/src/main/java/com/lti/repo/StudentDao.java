@@ -11,9 +11,9 @@ public interface StudentDao {
 	boolean updateStudent(Student student);
 	boolean deleteStudent(int studentId);
 	Student findAUser(int userId);
-	boolean loginStudent(int userId , String password);
 	List<Student> viewAllStudents();
 //	List<Exam> viewAllExamsOfStudent(int studentId);
+	int findByEmailPassword(String studentEmail, String studentPassword);
 	boolean isStudentPresent(String studentEmail);
 
 

@@ -61,7 +61,7 @@ class QuestionTest {
 	@Test
 	public void updateQuestion() {
 		Question question=new Question();
-		question.setQuestionId(71);
+		question.setQuestionId(41);
 		question.setLevel(1);
 		question.setQuestion("Which one is not a feature of java ?");
 		question.setChoiceOne("Dynamic");

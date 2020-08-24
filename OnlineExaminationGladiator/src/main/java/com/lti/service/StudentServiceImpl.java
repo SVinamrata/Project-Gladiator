@@ -3,6 +3,7 @@ package com.lti.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.lti.exception.StudentServiceException;
@@ -26,6 +27,18 @@ public class StudentServiceImpl implements StudentService {
 			throw new StudentServiceException("Customer already registered");
 		
 	}
+	
+	@Override
+	public Student login(String studentEmail, String studentPassword) {
+		try {
+			int id= dao.findByEmailPassword(studentEmail, studentPassword);
+			Student s= dao.findAUser(id);
+			return s;
+		}catch (EmptyResultDataAccessException e) {
+			throw new StudentServiceException("Invalid Credentials");
+		}
+	}
+	
 
 	public boolean updateStudent(Student student) {
 		return dao.updateStudent(student);
@@ -39,13 +52,11 @@ public class StudentServiceImpl implements StudentService {
 		return dao.findAUser(userId);
 	}
 
-	public boolean loginStudent(int userId, String password) {
-		return dao.loginStudent(userId, password);
-	}
 
 	public List<Student> viewAllStudents() {
 		return dao.viewAllStudents();
 	}
+
 
 //	public List<Exam> viewAllExamsOfStudent(int studentId) {
 //		return dao.viewAllExamsOfStudent(studentId);

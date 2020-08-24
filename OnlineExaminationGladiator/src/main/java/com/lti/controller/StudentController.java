@@ -2,6 +2,8 @@ package com.lti.controller;
 
 import java.util.List;
 import com.lti.controller.Status.StatusType;
+import com.lti.controller.StudentController.loginStatus;
+import com.lti.dto.LoginDto;
 import com.lti.exception.StudentServiceException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,41 @@ public class StudentController {
 		return service.viewAllStudents();
 	}
 	
+	@PostMapping("/loginstudent")
+	public loginStatus login(@RequestBody LoginDto loginDto){
+		loginStatus loginStatus= new loginStatus();
+		try {
+			Student s=service.login(loginDto.getEmail(), loginDto.getPassword());
+			loginStatus.setStudentId(s.getStudentID());
+			loginStatus.setMessage("Login Successful");
+			loginStatus.setStudentName(s.getStudentName());
+			loginStatus.setStatus(StatusType.SUCCESS);
+		} catch (StudentServiceException e) {
+			loginStatus.setStatus(StatusType.FAILURE);
+			loginStatus.setMessage(e.getMessage());
+		}
+		return loginStatus;
+	}
+	
+	public static class loginStatus extends Status{
+		private int studentId;
+		private String studentName;
+		
+		public int getStudentId() {
+			return studentId;
+		}
+		public void setStudentId(int studentId) {
+			this.studentId = studentId;
+		}
+		public String getStudentName() {
+			return studentName;
+		}
+		public void setStudentName(String studentName) {
+			this.studentName = studentName;
+		}
+	}
+
+	
 	@PostMapping(path="/register")
 	public Status addNewStudent(@RequestBody Student student) {
 		System.out.println(student.getStudentEmail());
@@ -38,14 +75,14 @@ public class StudentController {
 			Status status=new Status();
 			status.setStatus(StatusType.SUCCESS);
 			
-			status.setMesaage("Registeration Successful!");
+			status.setMessage("Registeration Successful!");
 			return status;
 					
 		}catch (StudentServiceException e) {
 			// TODO: handle exception
 			Status status=new Status();
 			status.setStatus(StatusType.FAILURE);
-			status.setMesaage(e.getMessage());
+			status.setMessage(e.getMessage());
 			return status;
 		}
 	}
@@ -62,9 +99,6 @@ public class StudentController {
 		return service.findAUser(userId);
 	}
 
-	public boolean loginStudent(int userId, String password) {
-		return service.loginStudent(userId, password);
-	}
 	
 	/*public List<Student> viewAllStudents() {
 		return service.viewAllStudents();

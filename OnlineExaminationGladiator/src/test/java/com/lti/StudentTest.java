@@ -52,8 +52,9 @@ public class StudentTest {
 	}
 	
 	@Test
-	public void loginStudentTest() {
-		System.out.println(studentDao.loginStudent(20203, "amy"));	
+	public void fetchByEmailAndPassword() {  // EmptyResultDataAccessException
+		long id=studentDao.findByEmailPassword("varun@lti.com", "123");
+		System.out.println(id);
 	}
 	
 	@Test

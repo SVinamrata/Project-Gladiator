@@ -10,16 +10,16 @@ public class Status{
 		this.status = status;
 	}
 
-	public String getMesaage() {
-		return mesaage;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setMesaage(String mesaage) {
-		this.mesaage = mesaage;
+	public void setMessage(String mesaage) {
+		this.message = message;
 	}
 
 	private StatusType status;
-	private String mesaage;
+	private String message;
 	
 	public static enum StatusType{
 		SUCCESS, FAILURE;

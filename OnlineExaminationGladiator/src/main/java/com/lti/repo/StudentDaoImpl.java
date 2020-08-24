@@ -57,19 +57,15 @@ public class StudentDaoImpl implements StudentDao {
 		return em.find(Student.class , studentId);
 	}
 
-	public boolean loginStudent(int userId, String password) {
-		String sql = "select stud from Student stud where stud.studentID = :sid and stud.studentPassword = :sp";
-		TypedQuery<Student> qry = em.createQuery(sql, Student.class);
-		qry.setParameter("sid", userId);
-		qry.setParameter("sp", password);
-		List<Student> students = qry.getResultList();
-		if (students.isEmpty())
-			return false;
 
-		return true;
-		
+	@Override	
+	public int findByEmailPassword(String studentEmail,String studentPassword) {
+		return (Integer) em.createQuery("select s.studentID from Student s where s.studentEmail= :e and s.studentPassword= :pw")
+				.setParameter("e", studentEmail)
+				.setParameter("pw", studentPassword)
+				.getSingleResult();
 	}
-
+	
 	public List<Student> viewAllStudents() {
 		String sql = "select stud from Student stud";
 		TypedQuery<Student> qry = em.createQuery(sql, Student.class);
