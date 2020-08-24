@@ -27,7 +27,7 @@ public class StudentTest {
 	public void addNewStudentTest() {
 		Student stud = new Student();
 		stud.setStudentName("Sheldon Cooper");
-		stud.setSudentPassword("buzzinga");
+		stud.setStudentPassword("buzzinga");
 		stud.setStudentDOB(LocalDate.of(1988, 02, 15));
 		stud.setStudentEmail("cooper.sheldon@gmail.com");
 		stud.setStudentCity("Pasadena");
@@ -46,7 +46,7 @@ public class StudentTest {
 	
 	@Test
 	public void findAUserTest() {
-		System.out.println(studentDao.findAUser(20203));
+		System.out.println(studentDao.findAUser(20227));
 	}
 	
 	@Test
@@ -59,7 +59,7 @@ public class StudentTest {
 		Student stud = new Student();
 		stud.setStudentID(20203);
 		stud.setStudentName("Sheldon Cooper");
-		stud.setSudentPassword("starWars");
+		stud.setStudentPassword("starWars");
 		stud.setStudentDOB(LocalDate.of(1988, 02, 15));
 		stud.setStudentEmail("cooper.sheldon@gmail.com");
 		stud.setStudentCity("Pasadena");

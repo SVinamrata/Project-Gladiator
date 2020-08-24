@@ -16,6 +16,11 @@ import javax.persistence.Table;
 @NamedQuery(name = "fetch-all",query = "select sub from Subject sub order by sub.subjectId")
 public class Subject {
 	
+	@Override
+	public String toString() {
+		return "Subject [subjectId=" + subjectId + ", subjectName=" + subjectName + "]";
+	}
+
 	@Id
 	@GeneratedValue
 	@Column(name="SUBJECT_ID")
@@ -62,10 +67,7 @@ public class Subject {
 		this.subjectQuestions = subjectQuestions;
 	}
 
-	@Override
-	public String toString() {
-		return "Subject [subjectId=" + subjectId + ", subjectName=" + subjectName + "]";
-	}
+
 	
 	
 

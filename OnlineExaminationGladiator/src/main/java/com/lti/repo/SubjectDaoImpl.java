@@ -43,7 +43,6 @@ public class SubjectDaoImpl implements SubjectDao {
 		Subject sub=em.find(Subject.class, subjectId);
 		return sub;
 	}
-	@Transactional
 	public List<Subject> listSubjects() {
 		return em.createNamedQuery("fetch-all").getResultList();
 	}

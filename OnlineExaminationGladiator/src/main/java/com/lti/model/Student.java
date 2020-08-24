@@ -67,11 +67,11 @@ public class Student {
 		this.studentName = studentName;
 	}
 
-	public String getSudentPassword() {
+	public String getStudentPassword() {
 		return studentPassword;
 	}
 
-	public void setSudentPassword(String studentPassword) {
+	public void setStudentPassword(String studentPassword) {
 		this.studentPassword = studentPassword;
 	}
 
