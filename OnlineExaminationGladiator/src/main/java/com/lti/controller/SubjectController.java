@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.displaySubject;
 import com.lti.model.Subject;
 import com.lti.service.SubjectService;
 
@@ -32,7 +33,7 @@ public class SubjectController {
 		return service.getSubjectBYSubjectId(subjectId);
 	}
 	@RequestMapping(path = "/testsAvailable", method = RequestMethod.GET, produces = "application/json")
-	public List<Subject> listSubjects(){
+	public List<displaySubject> listSubjects(){
 		return service.listSubjects();
 	}
 

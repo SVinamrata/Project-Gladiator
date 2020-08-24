@@ -62,4 +62,11 @@ public class Subject {
 		this.subjectQuestions = subjectQuestions;
 	}
 
+	@Override
+	public String toString() {
+		return "Subject [subjectId=" + subjectId + ", subjectName=" + subjectName + "]";
+	}
+	
+	
+
 }

@@ -2,6 +2,7 @@ package com.lti.service;
 
 import java.util.List;
 
+import com.lti.dto.displaySubject;
 import com.lti.model.Subject;
 
 public interface SubjectService {
@@ -9,7 +10,7 @@ public interface SubjectService {
 	public boolean updateSubject(Subject subject);
 	public boolean deleteSubject(int subjectId);
 	public Subject getSubjectBYSubjectId(int subjectId);
-	public List<Subject> listSubjects();
+	public List<displaySubject> listSubjects();
 	
 
 }
