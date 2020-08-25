@@ -162,6 +162,15 @@ public class Question {
 	public void setResponseList(List<Response> responseList) {
 		this.responseList = responseList;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Question [questionId=" + questionId + ", level=" + level + ", question=" + question + ", choiceOne="
+				+ choiceOne + ", choiceTwo=" + choiceTwo + ", choiceThree=" + choiceThree + ", choiceFour=" + choiceFour
+				+ ", correctAns=" + correctAns + "]";
+	}
+	
 	
 	
 

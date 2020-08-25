@@ -75,7 +75,7 @@ public class StudentController {
 			Status status=new Status();
 			status.setStatus(StatusType.SUCCESS);
 			
-			status.setMessage("Registeration Successful!");
+			status.setMessage("Registration Successful!");
 			return status;
 					
 		}catch (StudentServiceException e) {

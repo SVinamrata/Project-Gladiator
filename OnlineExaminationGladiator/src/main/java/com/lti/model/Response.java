@@ -32,4 +32,46 @@ public class Response {
 	@JoinColumn(name="QUESTION_ID")
 	private Question question;
 
+	public int getCurrentResponseId() {
+		return currentResponseId;
+	}
+
+	public void setCurrentResponseId(int currentResponseId) {
+		this.currentResponseId = currentResponseId;
+	}
+
+	public String getResponseStatus() {
+		return responseStatus;
+	}
+
+	public void setResponseStatus(String responseStatus) {
+		this.responseStatus = responseStatus;
+	}
+
+	public String getStudentResponse() {
+		return studentResponse;
+	}
+
+	public void setStudentResponse(String studentResponse) {
+		this.studentResponse = studentResponse;
+	}
+
+	public Exam getExamDetails() {
+		return examDetails;
+	}
+
+	public void setExamDetails(Exam examDetails) {
+		this.examDetails = examDetails;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
+	
+
 }

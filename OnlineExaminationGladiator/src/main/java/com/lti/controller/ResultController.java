@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.FetchLevelDto;
 import com.lti.dto.ResultDto;
+import com.lti.dto.ReturnLevelDto;
 import com.lti.dto.StudentIdDto;
 import com.lti.model.Result;
 import com.lti.service.ResultService;
@@ -27,5 +29,9 @@ public class ResultController {
 		return resultService.getResultOfaStudent(studentId.getStudentId());
 	}
 	
+	@PostMapping("/levelFetch")
+	public ReturnLevelDto fetchLevel(@RequestBody FetchLevelDto fetchLevel ) {
+		return resultService.fetchLevelOfStudent(fetchLevel);
+	}
 
 }

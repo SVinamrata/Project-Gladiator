@@ -12,9 +12,11 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lti.dto.FetchLevelDto;
 import com.lti.model.Exam;
 import com.lti.model.Result;
 import com.lti.model.Student;
+import com.lti.model.Subject;
 
 @Repository
 public class ResultDaoImpl implements ResultDao {
@@ -50,7 +52,36 @@ public class ResultDaoImpl implements ResultDao {
 		Result res = em.merge(result);
 		return res.getUserResultId();
 	}
-
+	
+//	public int fetchLevelOfStudent(Student student , Subject subject) {
+//		String sql = "select ex.examResult from Exam ex where ex.student=:stu and ex.examSubject=:sub";
+//		TypedQuery<Result> qry = em.createQuery(sql , Result.class);
+//		qry.setParameter("stu", student);
+//		qry.setParameter("sub", subject);
+//		List<Result> resultList = qry.getResultList();
+//		int max = 0;
+//		for(Result res: resultList) {
+//			if(res.getResultStatus()=="Passed" && res.getLevelPassed()>max)
+//				max = res.getLevelPassed();
+//		}
+//		return max;
+//	}
+	
+	public int fetchLevelOfStudent(Student student , Subject subject) {
+		String sql = "select ex.examResult from Exam ex where ex.student.studentID=:stu and ex.examSubject.subjectId=:sub";
+		TypedQuery<Result> qry = em.createQuery(sql , Result.class);
+		qry.setParameter("stu", student.getStudentID());
+		qry.setParameter("sub", subject.getSubjectId());
+		List<Result> resultList = qry.getResultList();
+		int max = 0;
+		for(Result res: resultList) {
+			System.out.println(res.getResultStatus());
+			if(res.getResultStatus().equals("Passed") && res.getLevelPassed()>max)
+				max = res.getLevelPassed();
+		}
+		return max;
+	}
+// 
 //	public List<Result> viewAllResultByMinimumScore(int examId, int score) {
 //		// TODO Auto-generated method stub
 //		/*

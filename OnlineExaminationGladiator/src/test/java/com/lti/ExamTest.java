@@ -41,9 +41,9 @@ public class ExamTest {
 	public void addNewExamTest() {
 		List<Exam> examList = new ArrayList<Exam>();
 		Exam exam = new Exam();
-		Subject sub = subjectDao.getSubjectBYSubjectId(3);
+		Subject sub = subjectDao.getSubjectBYSubjectId(44);
 		exam.setTestSubject(sub);
-		Student stu = studentDao.findAUser(20202);
+		Student stu = studentDao.findAUser(20227);
 		exam.setStudent(stu);
 		examList.add(exam);	
 		sub.setSubjectExams(examList);

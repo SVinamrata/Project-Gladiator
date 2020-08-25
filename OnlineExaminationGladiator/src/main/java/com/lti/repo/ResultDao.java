@@ -15,6 +15,7 @@ public interface ResultDao {
 	List<Result> getResultsOfaStudent(Student student);
 //	List<Result> viewAllResultByMinimumScore(int examId,int score);
 //	List<Result> viewAllResultByLevel(int level);
+	int fetchLevelOfStudent(Student student , Subject subject);
 	
 
 }

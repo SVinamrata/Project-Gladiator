@@ -24,7 +24,7 @@ public class StudentServiceImpl implements StudentService {
 			dao.addNewStudent(student);
 		}
 		else
-			throw new StudentServiceException("Customer already registered");
+			throw new StudentServiceException("Student already registered");
 		
 	}
 	

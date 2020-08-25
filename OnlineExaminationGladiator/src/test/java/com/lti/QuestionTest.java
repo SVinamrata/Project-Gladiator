@@ -36,14 +36,14 @@ class QuestionTest {
 	@Test
 	public void addQuestion() {
 		Question question=new Question();
-		question.setQuestion("Which is use to find bugs in java programs ?");
-		question.setLevel(1);
-		question.setChoiceOne("JVM");
-		question.setChoiceTwo("JRE");
-		question.setChoiceThree("JDK");
-		question.setChoiceFour("JDB");
-		question.setCorrectAns("JDB");
-		Subject subject = subjectDao.getSubjectBYSubjectId(64);
+		question.setQuestion("Which of the following is a type of scope of a variable or method in JAVA?");
+		question.setLevel(2);
+		question.setChoiceOne("public");
+		question.setChoiceTwo("protected");
+		question.setChoiceThree("private");
+		question.setChoiceFour("All of the above");
+		question.setCorrectAns("All of the above");
+		Subject subject = subjectDao.getSubjectBYSubjectId(44);
 		question.setExamSubject(subject);
 		List<Question> quesList = new ArrayList<Question>();
 		quesList.add(question);
@@ -89,5 +89,12 @@ class QuestionTest {
 	@Test
 	public void getQuestionsForASubject() {
 		System.out.println(questionDao.getQuestionsForASubject(10001));
+	}
+	
+	@Test
+	public void fetchQuestionsBySubjectAndLevel() {
+		Subject subject = subjectDao.getSubjectBYSubjectId(44);
+		System.out.println(questionDao.fetchQuestionsBySubjectAndLevel(subject, 1));
+
 	}
 }

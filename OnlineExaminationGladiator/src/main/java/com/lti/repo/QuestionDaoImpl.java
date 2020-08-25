@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.model.Exam;
 import com.lti.model.Question;
+import com.lti.model.Subject;
 
 @Repository
 public class QuestionDaoImpl implements QuestionDao {
@@ -63,6 +64,15 @@ public class QuestionDaoImpl implements QuestionDao {
 		String sql = "select ques from Question ques where ques.questionSubject = :sub";
 		TypedQuery<Question> qry = em.createQuery(sql, Question.class);
 		qry.setParameter("sub", subjectId);
+		List<Question> questions = qry.getResultList();
+		return questions;
+	}
+	
+	public List<Question> fetchQuestionsBySubjectAndLevel(Subject subject , int level){
+		String sql = "select ques from Question ques where ques.questionSubject = :sub and ques.level = :l";
+		TypedQuery<Question> qry = em.createQuery(sql , Question.class);
+		qry.setParameter("sub", subject);
+		qry.setParameter("l", level);
 		List<Question> questions = qry.getResultList();
 		return questions;
 	}
