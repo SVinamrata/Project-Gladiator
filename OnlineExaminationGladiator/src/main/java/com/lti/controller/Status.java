@@ -14,7 +14,7 @@ public class Status{
 		return message;
 	}
 
-	public void setMessage(String mesaage) {
+	public void setMessage(String message) {
 		this.message = message;
 	}
 
