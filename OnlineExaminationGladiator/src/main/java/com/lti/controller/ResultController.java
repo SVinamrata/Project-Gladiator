@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.FetchLevelDto;
 import com.lti.dto.ResultDto;
+import com.lti.dto.ResultStatus;
 import com.lti.dto.ReturnLevelDto;
+import com.lti.dto.ScoreDto;
 import com.lti.dto.StudentIdDto;
 import com.lti.model.Result;
 import com.lti.service.ResultService;
@@ -32,6 +34,13 @@ public class ResultController {
 	@PostMapping("/levelFetch")
 	public ReturnLevelDto fetchLevel(@RequestBody FetchLevelDto fetchLevel ) {
 		return resultService.fetchLevelOfStudent(fetchLevel);
+	}
+	
+	@PostMapping("/acceptScore")
+	public ResultStatus receiveScore(@RequestBody ScoreDto score) {
+		ResultStatus rs = new ResultStatus();
+		rs.setStatus(resultService.receiveScore(score));
+		return rs;
 	}
 
 }

@@ -24,7 +24,7 @@ public class ExamController {
 	@Autowired
 	ExamService service;
 
-	@PostMapping("/Examregister")
+	@PostMapping("/examRegister")
 	public int addNewExam(@RequestBody generateExamId generateExamId) {
 		return service.addNewExam(generateExamId);
 	}

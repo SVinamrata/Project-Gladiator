@@ -41,7 +41,7 @@ class ResultTest {
 		result.setResultStatus("Passed");
 		result.setScore(70);
 		result.setLevelPassed(1);
-		Exam exam = examDao.findExamById(72);
+		Exam exam = examDao.findExamById(97);
 		result.setExamDetail(exam);
 		exam.setTestResult(result);
 		
@@ -57,7 +57,7 @@ class ResultTest {
 	
 	@Test
 	void levelFetchTest() {
-		Student student = studentDao.findAUser(20227);
+		Student student = studentDao.findAUser(74);
 		Subject subject = subjectDao.getSubjectBYSubjectId(44);
 		System.out.println(resultDao.fetchLevelOfStudent(student, subject)); 
 	}

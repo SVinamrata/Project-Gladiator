@@ -61,7 +61,7 @@ public class QuestionDaoImpl implements QuestionDao {
 	}
 
 	public List<Question> getQuestionsForASubject(int subjectId) {
-		String sql = "select ques from Question ques where ques.questionSubject = :sub";
+		String sql = "select ques from Question ques where ques.questionSubject.subjectId = :sub";
 		TypedQuery<Question> qry = em.createQuery(sql, Question.class);
 		qry.setParameter("sub", subjectId);
 		List<Question> questions = qry.getResultList();

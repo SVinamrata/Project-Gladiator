@@ -72,6 +72,14 @@ public class StudentDaoImpl implements StudentDao {
 		List<Student> students = qry.getResultList();
 		return students;
 	}
+	
+	public List<Student> listStudentsBySubjectId(int subjectId){
+		String sql = "select distinct(ex.student) from Exam ex where ex.examSubject.subjectId= :sub ";
+		TypedQuery<Student> qry = em.createQuery(sql , Student.class);
+		qry.setParameter("sub", subjectId);
+		return qry.getResultList();
+		
+	}
 
 //	public List<Exam> viewAllExamsOfStudent(int studentId) {
 //		Student student = em.find(Student.class, studentId);

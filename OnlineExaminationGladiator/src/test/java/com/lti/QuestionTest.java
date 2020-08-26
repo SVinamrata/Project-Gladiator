@@ -24,7 +24,6 @@ import com.lti.repo.SubjectDao;
 @SpringBootTest
 @AutoConfigureTestDatabase(replace=Replace.NONE)
 @Rollback(false)
-
 class QuestionTest {
 
 	@Autowired
@@ -36,13 +35,13 @@ class QuestionTest {
 	@Test
 	public void addQuestion() {
 		Question question=new Question();
-		question.setQuestion("Which of the following is a type of scope of a variable or method in JAVA?");
+		question.setQuestion("Which of the following can be operands of arithmetic operators?");
 		question.setLevel(2);
-		question.setChoiceOne("public");
-		question.setChoiceTwo("protected");
-		question.setChoiceThree("private");
-		question.setChoiceFour("All of the above");
-		question.setCorrectAns("All of the above");
+		question.setChoiceOne("Numeric");
+		question.setChoiceTwo("Boolean");
+		question.setChoiceThree("Characters");
+		question.setChoiceFour("Both Numeric & Characters");
+		question.setCorrectAns("Both Numeric & Characters");
 		Subject subject = subjectDao.getSubjectBYSubjectId(44);
 		question.setExamSubject(subject);
 		List<Question> quesList = new ArrayList<Question>();

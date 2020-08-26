@@ -78,6 +78,11 @@ public class StudentTest {
 		System.out.println(studentDao.viewAllStudents());
 	}
 	
+	@Test
+	public void listStudentsBySubject() {
+		System.out.println(studentDao.listStudentsBySubjectId(44));
+	}
+	
 //	@Test
 //	public void viewAllExamsOfStudentTest() {
 //		System.out.println(controller.viewAllExamsOfStudent(20203));

@@ -52,11 +52,13 @@ public class QuestionServiceImpl implements QuestionService{
 		List<QuestionDto> questionsDto = new ArrayList<QuestionDto>();
 		for(Question ques: questions) {
 			QuestionDto dto = new QuestionDto();
+			dto.setQuestionId(ques.getQuestionId());
 			dto.setQuestion(ques.getQuestion());
 			dto.setChoiceOne(ques.getChoiceOne());
 			dto.setChoiceTwo(ques.getChoiceTwo());
 			dto.setChoiceThree(ques.getChoiceThree());
 			dto.setChoiceFour(ques.getChoiceFour());
+			dto.setCorrectAns(ques.getCorrectAns());
 			questionsDto.add(dto);
 		}
 		return questionsDto;

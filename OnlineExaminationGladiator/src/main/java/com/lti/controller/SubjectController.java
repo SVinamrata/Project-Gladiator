@@ -35,7 +35,10 @@ public class SubjectController {
 	}
 	@RequestMapping(path = "/testsAvailable", method = RequestMethod.GET, produces = "application/json")
 	public List<displaySubject> listSubjects(){
-		return service.listSubjects();
+		List<displaySubject> list = service.listSubjects();
+		System.out.println(list);
+		return list;
+//		return service.listSubjects();
 	}
 
 }

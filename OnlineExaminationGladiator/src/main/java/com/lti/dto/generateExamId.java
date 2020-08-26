@@ -3,6 +3,7 @@ package com.lti.dto;
 public class generateExamId {
 	private int subjectId;
 	private int studentId;
+	
 	public int getSubjectId() {
 		return subjectId;
 	}

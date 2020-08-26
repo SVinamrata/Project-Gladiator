@@ -3,6 +3,7 @@ package com.lti.dto;
 
 public class QuestionDto {
 	
+	private int questionId;
 	
 	private String question;
 		
@@ -13,6 +14,18 @@ public class QuestionDto {
 	private String choiceThree;
 	
 	private String choiceFour;
+	
+	private String correctAns;
+
+	
+	
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
 
 	public String getQuestion() {
 		return question;
@@ -52,7 +65,17 @@ public class QuestionDto {
 
 	public void setChoiceFour(String choiceFour) {
 		this.choiceFour = choiceFour;
+	}
+
+	public String getCorrectAns() {
+		return correctAns;
+	}
+
+	public void setCorrectAns(String correctAns) {
+		this.correctAns = correctAns;
 	}	
+	
+	
 	
 	
 
