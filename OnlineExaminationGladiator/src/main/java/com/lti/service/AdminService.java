@@ -1,5 +1,7 @@
 package com.lti.service;
 
+import com.lti.model.Admin;
+
 public interface AdminService {
-	boolean loginAdmin(int userId , String password);
+	Admin loginAdmin(String email , String password);
 }

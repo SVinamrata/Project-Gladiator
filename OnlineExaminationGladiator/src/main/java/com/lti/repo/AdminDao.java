@@ -1,6 +1,10 @@
 package com.lti.repo;
 
+import com.lti.model.Admin;
+
 public interface AdminDao {
-	boolean loginAdmin(int userId , String password);
+	int findByEmailPassword(String email , String password);
+
+	Admin findAdminUser(int id);
 
 }
